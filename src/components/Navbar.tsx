@@ -5,6 +5,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "react-router-dom";
 import navLinks from "@/lib/data";
 import NavLinks from "./NavLinks";
+import TargetCursor from "./TargetCursor";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,18 +92,19 @@ export const Navbar = () => {
             <NavLinks links={navLinks} onLinkClick={scrollToSection} activeId={activeSection} className="gap-4" />
 
             <ThemeToggle />
-            <Button variant="hero" size="sm" onClick={() => scrollToSection("contact") }>
+            <Button className="bg-primary cursor-target" variant="hero" size="sm" onClick={() => scrollToSection("contact") }>
               Get Started
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className={`md:hidden flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
+          <div className={`md:hidden bg-primary flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
               isScrolled ? "glass shadow-lg" : "bg-transparent"}`}>
             <ThemeToggle />
             <Button
-              variant="ghost"
+              variant="default"
               size="icon"
+              className="cursor-target"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
@@ -116,7 +118,7 @@ export const Navbar = () => {
             <div className="px-2">
               <NavLinks links={navLinks} onLinkClick={scrollToSection} activeId={activeSection} vertical className="rounded-xl overflow-hidden bg-background/40" />
               <div className="pt-3 px-2">
-                <Button variant="hero" size="sm" className="w-full" onClick={() => scrollToSection("contact") }>
+                <Button variant="hero" size="sm" className="w-full cursor-target" onClick={() => scrollToSection("contact") }>
                   Get Started
                 </Button>
               </div>

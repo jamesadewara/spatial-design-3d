@@ -72,27 +72,6 @@ export const Hero = () => {
               Learn More
             </Button>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
-            {[
-              { value: "50+", label: "Projects Completed" },
-              { value: "100%", label: "Client Satisfaction" },
-              { value: "3x", label: "Average Conversion" },
-              { value: "5+", label: "Years Experience" },
-            ].map((stat, index) => (
-              <div 
-                key={index} 
-                className="text-center animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
