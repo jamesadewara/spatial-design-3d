@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Section from "./Section";
 import BlurText from "./BlurText";
+import TextPressure from "./TextPressure";
 
 export const Hero = () => {
   const scrollToSection = (id) => {
@@ -12,20 +13,35 @@ export const Hero = () => {
   };
 
   return (
-    <Section 
-      showDotGrid={true} 
+    <Section
+      showDotGrid={true}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background pointer-events-none" />
- <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 lg:py-20">
+      <div
+        className="w-screen h-screen absolute inset-0 bg-cover bg-center opacity-20"
+        style={{ backgroundImage: `url(assets/img/hero-3d.png)` }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12">
           <div className="w-full flex flex-col justify-center items-center">
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Create Highly Converting Landing Pages That Convert
-            </h1>
-            
+
+            <TextPressure
+              text="Create Highly Converting Landing Pages That Convert"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+              flex={false}
+              alpha={false}
+              stroke={false}
+              width={false}
+              weight={true}
+              italic={false}
+              strokeWidth={9}
+              textColor="hsl(var(--foreground))"
+              strokeColor="hsl(var(--primary))"
+              minFontSize={120}
+            />
+
             {/* Subheadline */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl text-center leading-relaxed px-4 sm:px-0 animate-fade-up mt-6 opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
               Transform your online presence with landing pages engineered to convert.
@@ -35,19 +51,19 @@ export const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-up pt-4 opacity-0 [animation-delay:850ms] [animation-fill-mode:forwards]">
-            <Button 
-              variant="hero" 
-              size="xl" 
-              onClick={() => scrollToSection("contact")} 
+            <Button
+              variant="hero"
+              size="xl"
+              onClick={() => scrollToSection("contact")}
               className="cursor-target w-full sm:w-auto min-w-[200px]"
               shimmer={true}
             >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="xl" 
+            <Button
+              variant="outline"
+              size="xl"
               onClick={() => scrollToSection("about")}
               className="cursor-target hover:bg-transparent w-full sm:w-auto min-w-[200px]"
               shimmer={true}
