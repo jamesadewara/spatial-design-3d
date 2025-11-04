@@ -13,22 +13,27 @@ import TargetCursor from "@/components/TargetCursor";
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen">
-      <TargetCursor 
-        spinDuration={2}
-        hideDefaultCursor={true}
-      />
-      <Navbar />
-      <Hero />
-      <About />
-      <Stats />
-      <Services />
-      <StickyScroll />
-      <Companies />
-      <Testimonials />
-      <CTA />
-      <Contact />
-      <Footer />
+    <div className="relative min-h-screen overflow-x-hidden">
+      {/* Defer custom cursor load to prevent initial render issues */}
+      {typeof window !== 'undefined' && (
+        <TargetCursor 
+          spinDuration={2}
+          hideDefaultCursor={true}
+        />
+      )}
+      <main>
+        <Navbar />
+        <Hero />
+        <About />
+        <Stats />
+        <Services />
+        <StickyScroll />
+        <Companies />
+        <Testimonials />
+        <CTA />
+        <Contact />
+        <Footer />
+      </main>
     </div>
   );
 };

@@ -72,7 +72,7 @@ export const Navbar = () => {
           <Link to="/" className="text-2xl font-bold gradient-text flex items-center gap-2">
             <img
               src="logo.png"
-              className={`w-16 h-16 will-change-transform p-2  rounded-xl transition-all duration-300 ${
+              className={`cursor-target select-none w-16 h-16 will-change-transform p-2  rounded-xl transition-all duration-300 ${
               isScrolled ? "glass shadow-lg" : "bg-transparent"}`}
               style={{
                 transform: `perspective(800px) rotateY(${logoRotation.y}deg) rotateX(${logoRotation.x}deg)`,

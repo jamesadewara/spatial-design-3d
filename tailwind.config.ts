@@ -92,15 +92,39 @@ export default {
           "0%": { backgroundPosition: "-1000px 0" },
           "100%": { backgroundPosition: "1000px 0" },
         },
+        sweep: {
+          "0%": { backgroundPosition: "-100% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        blurIn: {
+          '0%': {
+            opacity: '0',
+            filter: 'blur(10px)',
+            transform: 'translateY(20px)'
+          },
+          '100%': {
+            opacity: '1',
+            filter: 'blur(0px)',
+            transform: 'translateY(0)'
+          },
+        },
+        gradient: {
+        '0%, 100%': { backgroundPosition: '0% 50%' },
+        '50%': { backgroundPosition: '100% 50%' },
+      },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeUp: "fadeUp 0.6s ease-out forwards",
         slideLeft: "slideLeft 0.6s ease-out forwards",
+        "sweep-light": "sweep 1s ease-in-out infinite",
         slideRight: "slideRight 0.6s ease-out forwards",
         float: "float 3s ease-in-out infinite",
         shimmer: "shimmer 2s infinite linear",
+        'blur-in': 'blurIn 1s ease-out',
+        'fade-up': 'fadeUp 0.8s ease-out',
+        gradient: 'gradient 3s linear infinite',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

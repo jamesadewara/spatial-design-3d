@@ -1,79 +1,62 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
-
-const rotatingWords = ["Outstanding", "Converting", "Beautiful", "Engaging"];
+import { ArrowRight } from "lucide-react";
+import Section from "./Section";
+import BlurText from "./BlurText";
 
 export const Hero = () => {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden dot-grid">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url(assets/img/hero-bg.jpg)` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background" />
-
-      {/* Radial Gradient Glow */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent" />
-
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Floating Icon */}
-          <div className="mb-8 flex justify-center animate-float">
-            <div className="p-4 rounded-2xl glass">
-              <Sparkles className="w-12 h-12 text-primary" />
-            </div>
+    <Section 
+      showDotGrid={true} 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background Gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background pointer-events-none" />
+ <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12">
+          <div className="w-full flex flex-col justify-center items-center">
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Create Highly Converting Landing Pages That Convert
+            </h1>
+            
+            {/* Subheadline */}
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl text-center leading-relaxed px-4 sm:px-0 animate-fade-up mt-6 opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
+              Transform your online presence with landing pages engineered to convert.
+              From concept to conversion, we make your vision perform.
+            </p>
           </div>
 
-          {/* Main Headline with Rotating Text */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="block mb-2">Create</span>
-            <span className="gradient-text block transition-all duration-500">
-              {rotatingWords[currentWordIndex]}
-            </span>
-            <span className="block mt-2">Landing Pages</span>
-          </h1>
-
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-up">
-            Transform your online presence with landing pages engineered to convert. 
-            From concept to conversion, we make your vision perform.
-          </p>
-
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up">
-            <Button variant="hero" size="xl" onClick={scrollToContact}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-up pt-4 opacity-0 [animation-delay:850ms] [animation-fill-mode:forwards]">
+            <Button 
+              variant="hero" 
+              size="xl" 
+              onClick={() => scrollToSection("contact")} 
+              className="cursor-target w-full sm:w-auto min-w-[200px]"
+              shimmer={true}
+            >
               Get Started
-              <ArrowRight className="ml-2" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="xl" onClick={() => {
-              const element = document.getElementById("about");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}>
+            <Button 
+              variant="outline" 
+              size="xl" 
+              onClick={() => scrollToSection("about")}
+              className="cursor-target hover:bg-transparent w-full sm:w-auto min-w-[200px]"
+              shimmer={true}
+            >
               Learn More
             </Button>
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

@@ -223,12 +223,6 @@ All colors MUST be HSL.
   box-shadow: var(--glow-secondary);
 }
 
-/* Dot grid background */
-.dot-grid {
-  background-image: radial-gradient(circle, hsl(var(--foreground) / 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
 /* Glass morphism effect */
 .glass {
   background: hsl(var(--card) / 0.7);
