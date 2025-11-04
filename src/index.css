@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
-    --primary: 217 91% 60%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 330 81% 60%;
+    --secondary: 330 85% 55%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 95%;
     --muted-foreground: 220 10% 45%;
 
-    --accent: 330 81% 60%;
+    --accent: 330 85% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -34,15 +34,15 @@ All colors MUST be HSL.
 
     --border: 220 15% 88%;
     --input: 220 15% 88%;
-    --ring: 217 91% 60%;
+    --ring: 221 83% 53%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(330, 81%, 60%) 100%);
-    --gradient-radial: radial-gradient(circle at center, hsl(217, 91%, 60% / 0.2) 0%, transparent 70%);
-    --glow-primary: 0 0 40px hsl(217, 91%, 60% / 0.4);
-    --glow-secondary: 0 0 40px hsl(330, 81%, 60% / 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(330, 85%, 55%) 100%);
+    --gradient-radial: radial-gradient(circle at center, hsl(221, 83%, 53% / 0.2) 0%, transparent 70%);
+    --glow-primary: 0 0 40px hsl(221, 83%, 53% / 0.4);
+    --glow-secondary: 0 0 40px hsl(330, 85%, 55% / 0.4);
   }
 
   .dark {
@@ -55,16 +55,16 @@ All colors MUST be HSL.
     --popover: 220 20% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 217 91% 60%;
+    --primary: 221 83% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 330 81% 60%;
+    --secondary: 330 85% 60%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 20% 18%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 330 81% 60%;
+    --accent: 330 85% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -72,13 +72,13 @@ All colors MUST be HSL.
 
     --border: 220 20% 20%;
     --input: 220 20% 20%;
-    --ring: 217 91% 60%;
+    --ring: 221 83% 58%;
 
     /* Enhanced dark mode tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(330, 81%, 60%) 100%);
-    --gradient-radial: radial-gradient(circle at center, hsl(217, 91%, 60% / 0.15) 0%, transparent 70%);
-    --glow-primary: 0 0 60px hsl(217, 91%, 60% / 0.3);
-    --glow-secondary: 0 0 60px hsl(330, 81%, 60% / 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(221, 83%, 58%) 0%, hsl(330, 85%, 60%) 100%);
+    --gradient-radial: radial-gradient(circle at center, hsl(221, 83%, 58% / 0.15) 0%, transparent 70%);
+    --glow-primary: 0 0 60px hsl(221, 83%, 58% / 0.3);
+    --glow-secondary: 0 0 60px hsl(330, 85%, 60% / 0.3);
   }
 }
 
