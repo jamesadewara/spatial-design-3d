@@ -29,17 +29,9 @@ export const Hero = () => {
 
             <TextPressure
               text="Create Highly Converting Landing Pages That Convert"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
-              flex={false}
-              alpha={false}
-              stroke={false}
-              width={false}
-              weight={true}
-              italic={false}
-              strokeWidth={9}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent uppercase"
               textColor="hsl(var(--foreground))"
-              strokeColor="hsl(var(--primary))"
-              minFontSize={120}
+              hoverColor="hsl(var(--primary))"
             />
 
             {/* Subheadline */}
