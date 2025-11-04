@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const rotatingWords = ["Outstanding", "Converting", "Beautiful", "Engaging"];
 
@@ -28,7 +27,7 @@ export const Hero = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        style={{ backgroundImage: `url(assets/img/hero-bg.jpg)` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background" />
 
