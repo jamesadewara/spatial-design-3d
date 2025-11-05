@@ -11,12 +11,32 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary",
-        hero: "bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-md active:border-2 active:border-secondary transition-all duration-150 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
-        gradient: "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
+hero: `
+  relative
+  border-0
+  bg-primary text-primary-foreground font-mono leading-none no-underline
+  shadow-[rgba(0,0,0,0.05)_0_2px_4px,rgba(0,0,0,0.05)_0_7px_13px_-3px,theme(colors.border)_0_-3px_0_inset]
+  transition-all duration-150 ease-in-out
+  hover:-translate-y-0.5
+  hover:shadow-[rgba(0,0,0,0.07)_0_4px_8px,rgba(0,0,0,0.07)_0_7px_13px_-3px,theme(colors.border)_0_-3px_0_inset]
+  active:translate-y-0.5
+  active:shadow-[theme(colors.border)_0_3px_7px_inset]
+  focus:shadow-[theme(colors.border)_0_0_0_1.5px_inset,rgba(0,0,0,0.1)_0_2px_4px,rgba(0,0,0,0.05)_0_7px_13px_-3px,theme(colors.border)_0_-3px_0_inset]
+  touch-manipulation
+  before:absolute before:inset-0
+  before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+  before:-translate-x-[200%] hover:before:translate-x-[200%]
+  before:transition-transform before:duration-700
+  rounded-lg hover:-translate-y-[2px] active:translate-y-[1px]
+  hover:shadow-xl active:shadow-md active:border-2 
+`,
+        gradient:
+          "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:-translate-x-[200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -30,7 +50,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
+  }
 );
 
 export interface ButtonProps

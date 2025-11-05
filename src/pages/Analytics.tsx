@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { BarChart3, Users, Eye, MousePointerClick, TrendingUp, Activity } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import SectionHeader from "@/components/SectionHeader";
+import TargetCursor from "@/components/TargetCursor";
 
 const trafficData = [
   { name: "Jan", visits: 4000, conversions: 240 },
@@ -31,23 +33,23 @@ const Analytics = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Defer custom cursor load to prevent initial render issues */}
+      {typeof window !== 'undefined' && (
+        <TargetCursor 
+          spinDuration={1}
+          hideDefaultCursor={true}
+        />
+      )}
       <Navbar />
       
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              Analytics Dashboard
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Real-time insights into your website performance
-            </p>
-          </div>
+          <SectionHeader title="Analytics Dashboard" subtitle="Real-time insights into your website performance"/>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {stats.map((stat, index) => (
-              <Card key={index} className="p-6 glass hover:border-primary/50 transition-all duration-300">
+              <Card key={index} className="cursor-target p-6 glass hover:border-primary/50 transition-all duration-300">
                 <div className="flex items-center justify-between mb-4">
                   <stat.icon className="w-8 h-8 text-primary" />
                   <span className={`text-sm font-medium ${stat.positive ? "text-green-500" : "text-red-500"}`}>
@@ -63,7 +65,7 @@ const Analytics = () => {
           {/* Charts Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             {/* Traffic Chart */}
-            <Card className="p-6 glass">
+            <Card className="p-6 glass cursor-target">
               <div className="flex items-center gap-2 mb-6">
                 <Activity className="w-5 h-5 text-primary" />
                 <h3 className="text-xl font-semibold">Traffic & Conversions</h3>
@@ -87,7 +89,7 @@ const Analytics = () => {
             </Card>
 
             {/* Device Distribution */}
-            <Card className="p-6 glass">
+            <Card className="p-6 glass cursor-target">
               <div className="flex items-center gap-2 mb-6">
                 <BarChart3 className="w-5 h-5 text-primary" />
                 <h3 className="text-xl font-semibold">Device Distribution</h3>
@@ -111,6 +113,7 @@ const Analytics = () => {
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: "hsl(var(--card))", 
+                      color: "hsl(var(--muted-foreground))",
                       border: "1px solid hsl(var(--border))",
                       borderRadius: "8px"
                     }} 
@@ -123,7 +126,7 @@ const Analytics = () => {
           {/* Session Recordings & Heatmaps */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Session Recordings */}
-            <Card className="p-6 glass">
+            <Card className="p-6 glass cursor-target">
               <h3 className="text-xl font-semibold mb-4">Session Recordings</h3>
               <div className="space-y-4">
                 {[1, 2, 3].map((session) => (
@@ -144,7 +147,7 @@ const Analytics = () => {
             </Card>
 
             {/* Heatmap Preview */}
-            <Card className="p-6 glass">
+            <Card className="p-6 glass cursor-target">
               <h3 className="text-xl font-semibold mb-4">Click Heatmap</h3>
               <div className="relative aspect-video rounded-lg bg-gradient-to-br from-muted to-muted/50 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">

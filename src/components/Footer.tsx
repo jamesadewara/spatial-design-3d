@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { MessageCircle, Send, User } from "lucide-react";
+import Logo from "./Logo";
 
 export const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -17,10 +18,10 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="text-2xl font-bold gradient-text block mb-4">
-              <img
+            <Logo
               src="logo.png"
-              className="cursor-target select-none w-64 h-64 will-change-transform p-2  rounded-xl transition-all duration-300"
-              alt="SpatialDesign3D Logo"/>
+              alt="SpatialDesign3D Logo"
+              className="cursor-target user-select-none w-64 h-64 will-change-transform p-2  rounded-xl transition-all duration-300"/>
             </Link>
             <p className="text-muted-foreground text-sm">
               Creating outstanding landing pages that convert visitors into customers.
@@ -77,12 +78,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="#" className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Case Studies
+                  Terms and Conditions
                 </a>
               </li>
               <li>

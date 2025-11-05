@@ -10,6 +10,7 @@ import { CTA } from "@/components/CTA";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import TargetCursor from "@/components/TargetCursor";
+import FeedbackDialog from "@/components/FeedbackDialog";
 
 const Index = () => {
   return (
@@ -34,6 +35,7 @@ const Index = () => {
         <Contact />
         <Footer />
       </main>
+      <FeedbackDialog />
     </div>
   );
 };

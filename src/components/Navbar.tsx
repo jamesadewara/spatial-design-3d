@@ -5,7 +5,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "react-router-dom";
 import navLinks from "@/lib/data";
 import NavLinks from "./NavLinks";
-import TargetCursor from "./TargetCursor";
+import Logo from "./Logo";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,36 +70,36 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="text-2xl font-bold gradient-text flex items-center gap-2">
-            <img
+            <Logo
               src="logo.png"
-              className={`cursor-target select-none w-16 h-16 will-change-transform p-2  rounded-xl transition-all duration-300 ${
-              isScrolled ? "glass shadow-lg" : "bg-transparent"}`}
+              alt="SpatialDesign3D Logo"
+              className={`cursor-target user-select-none w-16 h-16 will-change-transform p-2 rounded-xl transition-all duration-300 ${isScrolled ? "glass shadow-lg" : "bg-transparent"
+                }`}
               style={{
                 transform: `perspective(800px) rotateY(${logoRotation.y}deg) rotateX(${logoRotation.x}deg)`,
                 transition: "transform 220ms cubic-bezier(.2,.9,.3,1)",
               }}
             />
+
             <span className="sr-only">Home</span>
           </Link>
 
           {/* Desktop Menu */}
           <div
-            className={`hidden md:flex items-center gap-4 px-4 py-2 rounded-xl transition-all duration-300 ${
-              isScrolled ? "glass shadow-lg" : "bg-transparent"
-            }`}
+            className={`hidden md:flex items-center gap-4 px-4 py-2 rounded-xl transition-all duration-300 ${isScrolled ? "glass shadow-lg" : "bg-transparent"
+              }`}
           >
             {/* Reusable nav links */}
             <NavLinks links={navLinks} onLinkClick={scrollToSection} activeId={activeSection} className="gap-4" />
 
             <ThemeToggle />
-            <Button className="bg-primary cursor-target" variant="hero" size="sm" onClick={() => scrollToSection("contact") }>
+            <Button className="bg-primary cursor-target" variant="hero" size="sm" onClick={() => scrollToSection("contact")}>
               Get Started
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className={`md:hidden bg-primary flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
-              isScrolled ? "glass shadow-lg" : "bg-transparent"}`}>
+          <div className={`md:hidden bg-primary flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${isScrolled ? "glass shadow-lg" : "bg-transparent"}`}>
             <ThemeToggle />
             <Button
               variant="default"
@@ -118,7 +118,7 @@ export const Navbar = () => {
             <div className="px-2">
               <NavLinks links={navLinks} onLinkClick={scrollToSection} activeId={activeSection} vertical className="rounded-xl overflow-hidden bg-background/40" />
               <div className="pt-3 px-2">
-                <Button variant="hero" size="sm" className="w-full cursor-target" onClick={() => scrollToSection("contact") }>
+                <Button variant="hero" size="sm" className="w-full cursor-target" onClick={() => scrollToSection("contact")}>
                   Get Started
                 </Button>
               </div>

@@ -248,3 +248,12 @@ All colors MUST be HSL.
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.8);
 }
+
+.user-select-none {
+  -webkit-user-select: none;  /* Chrome, Safari, newer Opera */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* Internet Explorer/Edge */
+  user-select: none;          /* Standard syntax */
+  -webkit-user-drag: none;    /* Chrome, Safari */
+}
+
