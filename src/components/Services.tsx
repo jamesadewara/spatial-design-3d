@@ -81,11 +81,11 @@ export const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6 blur-2xl" />
 
                 {/* Floating 3D container */}
-                <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
+                <div className="cursor-target relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
                   <ModelViewer
                     src="/assets/3d/rubic.glb"
                     placeholder="/assets/img/cube.png"
-                    allowZoom={true}
+                    allowZoom={false}
                     allowPan={true}
                     allowRotate={true}
                     lockVerticalRotation={true}
