@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Send, Mail, MessageSquare, User } from "lucide-react";
 import { MessageCircle, Send as TelegramIcon } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,16 +52,8 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
+        <SectionHeader align="left" title={"Let's Work Together"} subtitle="Ready to elevate your digital presence? Get in touch."/>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Let's Work Together
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Ready to elevate your digital presence? Get in touch.
-            </p>
-          </div>
-
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form (Sticky) */}
             <div className="lg:sticky lg:top-24 self-start">
@@ -120,7 +113,7 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full">
+                <Button type="submit" variant="hero" size="lg" className="w-full cursor-target">
                   Send Message
                   <Send className="ml-2" />
                 </Button>
@@ -140,7 +133,7 @@ export const Contact = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                      className="cursor-target flex items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
                     >
                       <link.icon className={`w-6 h-6 ${link.color}`} />
                       <span className="text-sm font-medium group-hover:text-primary transition-colors">
@@ -164,7 +157,7 @@ export const Contact = () => {
               </div>
 
               {/* Map */}
-              <div className="glass rounded-2xl overflow-hidden h-64">
+              <div className="glass rounded-2xl overflow-hidden h-64 hover:h-96 transition-all duration-500">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.777!2d3.379!3d6.524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzEnMjYuNCJOIDPCsDIyJzQ0LjQiRQ!5e0!3m2!1sen!2sng!4v1234567890"
                   width="100%"
@@ -175,17 +168,6 @@ export const Contact = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Location Map"
                 />
-              </div>
-
-              {/* Additional Info Card */}
-              <div className="glass rounded-2xl p-8">
-                <h3 className="text-xl font-bold mb-4">Why Choose Us?</h3>
-                <div className="space-y-3 text-muted-foreground">
-                  <p>✓ Lightning-fast response time</p>
-                  <p>✓ Tailored solutions for your business</p>
-                  <p>✓ Proven track record of success</p>
-                  <p>✓ Ongoing support and maintenance</p>
-                </div>
               </div>
             </div>
           </div>

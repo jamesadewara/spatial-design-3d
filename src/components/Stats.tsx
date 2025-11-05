@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Users, Award, TrendingUp, Clock } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import SpotlightCard from "./SpotlightCard";
+import Section from "./Section";
 
 const stats = [
   {
@@ -32,11 +35,14 @@ const stats = [
   },
 ];
 
-const Counter = ({ end, suffix, isVisible }: { end: number; suffix: string; isVisible: boolean }) => {
+const Counter = ({ end, suffix, isVisible, resetKey }: { end: number; suffix: string; isVisible: boolean; resetKey: number }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible) {
+      setCount(0);
+      return;
+    }
 
     const duration = 2000;
     const steps = 60;
@@ -54,7 +60,7 @@ const Counter = ({ end, suffix, isVisible }: { end: number; suffix: string; isVi
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [end, isVisible]);
+  }, [end, isVisible, resetKey]);
 
   return (
     <span className="text-5xl font-bold gradient-text">
@@ -65,13 +71,21 @@ const Counter = ({ end, suffix, isVisible }: { end: number; suffix: string; isVi
 
 export const Stats = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Increment resetKey to trigger recount
+          setResetKey(prev => prev + 1);
+          hasAnimatedRef.current = true;
+        } else {
+          // Reset when out of view
+          setIsVisible(false);
         }
       },
       { threshold: 0.2 }
@@ -85,37 +99,29 @@ export const Stats = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 relative overflow-hidden">
+    <Section showDotGrid={true} ref={sectionRef} className="py-24 relative overflow-hidden">
+
       <div className="absolute inset-0 bg-gradient-radial opacity-50" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Results That Speak
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            Numbers that showcase our commitment to excellence
-          </p>
-        </div>
-
+      <SectionHeader align="center" title="Results That Speak" subtitle="Numbers that showcase our commitment to excellence"/>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <div
-              key={index}
-              className={`group relative ${isVisible ? "animate-scale-in" : "opacity-0"}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300" />
-              <div className="relative glass rounded-2xl p-8 text-center h-full flex flex-col items-center justify-center hover:border-primary/50 transition-all duration-300">
+            <SpotlightCard key={index} 
+              className={`cursor-target glass rounded-2xl group relative ${isVisible ? "animate-scale-in" : "opacity-0"}`}
+               >
+             
+              <div className="relative p-8 text-center h-full flex flex-col items-center justify-center hover:border-primary/50 transition-all duration-300">
                 <stat.icon className="w-12 h-12 text-primary mb-4" />
-                <Counter end={stat.value} suffix={stat.suffix} isVisible={isVisible} />
+                <Counter end={stat.value} suffix={stat.suffix} isVisible={isVisible} resetKey={resetKey} />
                 <h3 className="text-lg font-semibold mt-2 mb-1">{stat.label}</h3>
                 <p className="text-sm text-muted-foreground">{stat.description}</p>
               </div>
-            </div>
+            </SpotlightCard>
+          
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

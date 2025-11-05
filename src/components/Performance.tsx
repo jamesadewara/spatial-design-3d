@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle, Zap, Shield, TrendingUp } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import AnimatedServicesList from "./AnimatedServicesList";
+import PixelCard from "./PixelCard";
+import Section from "./Section";
 
 const features = [
   {
@@ -24,7 +28,7 @@ const features = [
   },
 ];
 
-export const StickyScroll = () => {
+export const Performance = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -46,13 +50,24 @@ export const StickyScroll = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 relative overflow-hidden">
+    <Section showDotGrid={true}  ref={sectionRef} className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       
       <div className="container mx-auto px-4 relative z-10">
+        <SectionHeader align="left" title="Built for Performance" subtitle="Every detail engineered for excellence. Here's what sets our work apart." />
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Scrolling Content - Right */}
+          <div className="space-y-8 lg:space-y-12">
+            <AnimatedServicesList
+                services={features}
+                showGradients={true}
+                enableArrowNavigation={true}
+                className="w-full"
+                itemClassName="hover:scale-105 transition-transform"
+              />
+          </div>
           {/* Sticky Image - Left */}
-          <div className="lg:sticky lg:top-24 lg:h-[600px] flex items-center justify-center">
+          <div className="cursor-target lg:sticky lg:top-24 lg:h-[600px] flex items-center justify-center">
             <div className={`relative w-full max-w-md ${isVisible ? "animate-scale-in" : "opacity-0"}`}>
               {/* Main visual container */}
               <div className="relative aspect-square">
@@ -92,60 +107,8 @@ export const StickyScroll = () => {
             </div>
           </div>
 
-          {/* Scrolling Content - Right */}
-          <div className="space-y-8 lg:space-y-12">
-            <div className={`${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Built for <span className="gradient-text">Performance</span>
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Every detail engineered for excellence. Here's what sets our work apart.
-              </p>
-            </div>
-
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className={`group ${isVisible ? "animate-fade-up" : "opacity-0"}`}
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="glass rounded-2xl p-8 hover:border-primary/50 transition-all duration-300">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <feature.icon className="w-7 h-7 text-primary" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Bottom CTA */}
-            <div className={`glass rounded-2xl p-8 text-center ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.6s" }}>
-              <h3 className="text-2xl font-bold mb-4">Ready to Experience the Difference?</h3>
-              <p className="text-muted-foreground mb-6">
-                Let's build something extraordinary together.
-              </p>
-              <button
-                onClick={() => {
-                  const element = document.getElementById("contact");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium hover:opacity-90 transition-opacity"
-              >
-                Start Your Project
-              </button>
-            </div>
-          </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

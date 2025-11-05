@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Section from "./Section";
-import BlurText from "./BlurText";
-import TextPressure from "./TextPressure";
 
 export const Hero = () => {
   const scrollToSection = (id) => {
@@ -27,12 +25,9 @@ export const Hero = () => {
             <div className="w-full flex flex-col justify-center items-center">
               {/* Main Headline */}
 
-              <TextPressure
-                text="Create Highly Converting Landing Pages That Convert"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent uppercase"
-                textColor="hsl(var(--foreground))"
-                hoverColor="hsl(var(--primary))"
-              />
+                <h3  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-center w-full animate-blur-in opacity-0 blur-md [animation-delay:150ms] [animation-fill-mode:forwards] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent uppercase">
+                  Create Highly Converting Landing Pages That Convert
+                  </h3>
 
               {/* Subheadline */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl text-center leading-relaxed px-4 sm:px-0 animate-fade-up mt-6 opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">

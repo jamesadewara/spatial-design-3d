@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Box } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
+import Section from "./Section";
+import SectionHeader from "./SectionHeader";
 
 export const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,40 +26,45 @@ export const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 bg-muted/30">
+    <section id="about" ref={sectionRef}  className="py-24 bg-muted/30 relative min-h-screen flex items-center justify-center overflow-hidden flex-col">
       <div className="container mx-auto px-4">
+      <SectionHeader title="Crafting Digital Experiences That Convert"/>
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Content - Left */}
           <div className={`space-y-8 order-2 lg:order-1 ${isVisible ? "animate-slide-right" : "opacity-0"}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-              Crafting Digital Experiences That Convert
-            </h2>
-            <div className="space-y-6 text-lg text-muted-foreground">
-              <p>
-                <strong className="text-foreground">What I Do:</strong> I create stunning,
-                high-performance landing pages that don't just look beautiful—they drive results.
-              </p>
-              <p>
-                <strong className="text-foreground">How I Do It:</strong> By combining cutting-edge
-                design principles with conversion-focused strategies, every element is engineered
-                to engage your audience and guide them toward action.
-              </p>
-              <p>
-                <strong className="text-foreground">Why I Do It:</strong> Because your business
-                deserves more than a website. You deserve a powerful digital presence that works
-                as hard as you do, turning visitors into customers and clicks into conversions.
-              </p>
-              <p className="pt-4">
-                Every pixel, every interaction, and every element is crafted with purpose.
-                I don't just build websites—I engineer conversion machines that transform
-                your digital presence into your most powerful business asset.
-              </p>
-              <p>
-                From the initial consultation to the final launch and beyond, you'll have
-                a dedicated partner focused on one thing: making your online presence work
-                harder than ever before.
-              </p>
-            </div>
+            <ScrollReveal
+              baseOpacity={0}
+              enableBlur={true}
+              baseRotation={5}
+              blurStrength={10}
+            >
+              <div className="space-y-6 text-lg text-muted-foreground">
+                <p>
+                  <strong className="text-foreground">What I Do:</strong> I create stunning,
+                  high-performance landing pages that don't just look beautiful—they drive results.
+                </p>
+                <p>
+                  <strong className="text-foreground">How I Do It:</strong> By combining cutting-edge
+                  design principles with conversion-focused strategies, every element is engineered
+                  to engage your audience and guide them toward action.
+                </p>
+                <p>
+                  <strong className="text-foreground">Why I Do It:</strong> Because your business
+                  deserves more than a website. You deserve a powerful digital presence that works
+                  as hard as you do, turning visitors into customers and clicks into conversions.
+                </p>
+                <p className="pt-4">
+                  Every pixel, every interaction, and every element is crafted with purpose.
+                  I don't just build websites—I engineer conversion machines that transform
+                  your digital presence into your most powerful business asset.
+                </p>
+                <p>
+                  From the initial consultation to the final launch and beyond, you'll have
+                  a dedicated partner focused on one thing: making your online presence work
+                  harder than ever before.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* 3D Visual - Right (Sticky) */}
@@ -68,7 +76,7 @@ export const About = () => {
               >
                 <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[28rem] lg:h-[28rem]">
                   {/* Animated 3D Cube Representation */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="cursor-target absolute inset-0 flex items-center justify-center">
                     <div className="relative w-full h-full animate-float">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6 blur-2xl" />
                       <div className="relative glass rounded-3xl p-12 flex items-center justify-center">

@@ -7,32 +7,18 @@ interface SectionProps {
     className?: string;
     /** Enable/disable the dot grid background */
     showDotGrid?: boolean;
-    /** Section title (optional) */
-    title?: string;
-    /** Section description (optional) */
-    description?: string;
-    /** Alignment for title and description */
-    align?: 'left' | 'center' | 'right';
 }
 
-const Section: React.FC<SectionProps> = ({
+const Section = React.forwardRef<HTMLDivElement, SectionProps>(({
     children,
     id,
     className = "",
     showDotGrid = false,
-    title,
-    description,
-    align = 'left',
-}) => {
-    const alignmentClasses = {
-        left: 'text-left',
-        center: 'text-center mx-auto',
-        right: 'text-right ml-auto'
-    }[align];
-
+}, ref) => {
     return (
         <section 
             id={id}  
+            ref={ref}
             className={className}
         >
             {/* Optional dot grid background */}
@@ -59,29 +45,12 @@ const Section: React.FC<SectionProps> = ({
                     }}
                 />
             )}
-
-            {/* Section header with optional title and description */}
-            {(title || description) && (
-                <div className={`relative z-10 max-w-4xl ${alignmentClasses} mb-12`}>
-                    {title && (
-                        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                            {title}
-                        </h2>
-                    )}
-                    {description && (
-                        <p className="text-lg text-muted-foreground">
-                            {description}
-                        </p>
-                    )}
-                </div>
-            )}
-
             {/* Main content */}
             <div className="relative z-10">
                 {children}
             </div>
         </section>
     )
-}
+});
 
 export default Section;

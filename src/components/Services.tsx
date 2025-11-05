@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Database, Server, Shield, Wrench } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import AnimatedServicesList, { Service } from "./AnimatedServicesList";
 
-const services = [
+const services: Service[] = [
   {
     icon: Globe,
     title: "Custom Website Creation",
@@ -53,58 +55,41 @@ export const Services = () => {
   return (
     <section id="services" ref={sectionRef} className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
+        <SectionHeader align="right" title="What We Deliver" subtitle="End-to-end solutions for your digital presence" />
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* 3D Visual - Left (Sticky) */}
-          <div className="order-2 lg:order-1 lg:sticky lg:top-24 self-start">
+          <div className="cursor-target order-2 lg:order-1 lg:sticky lg:top-24 self-start">
             <div className={`flex justify-center w-full ${isVisible ? "animate-slide-right" : "opacity-0"}`}>
-              <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  {/* Rotating cube layers */}
-                  <div className="absolute inset-0 flex items-center justify-center animate-rotate" style={{ animationDuration: "15s" }}>
-                    <div className="w-48 h-48 border-2 border-primary/30 rounded-lg transform rotate-45" />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center animate-rotate" style={{ animationDuration: "20s", animationDirection: "reverse" }}>
-                    <div className="w-40 h-40 border-2 border-secondary/30 rounded-lg transform rotate-45" />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="glass rounded-2xl p-8">
-                      <Globe className="w-20 h-20 text-primary" />
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[28rem] lg:h-[28rem]">
+                  {/* Animated 3D Cube Representation */}
+                  <div className="cursor-target absolute inset-0 flex items-center justify-center">
+                    <div className="relative w-full h-full animate-float">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6 blur-2xl" />
+                      <div className="relative rounded-3xl p-12 flex items-center justify-center">
+                        <img
+                          src="assets/img/cube.png"
+                          alt="3D Cube"
+                          className="w-32 h-32 sm:w-48 sm:h-48 lg:w-full lg:h-full object-contain animate-pulse"
+                          style={{ animationDuration: "3s" }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
             </div>
           </div>
 
           {/* Services List - Right */}
           <div className={`order-1 lg:order-2 ${isVisible ? "animate-slide-left" : "opacity-0"}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text text-right">
-              What We Deliver
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 text-right">
-              End-to-end solutions for your digital presence
-            </p>
-            
             <div className="space-y-6">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className={`glass rounded-xl p-6 hover:border-primary/50 transition-all duration-300 group ${isVisible ? "animate-fade-up" : "opacity-0"}`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                      <p className="text-muted-foreground">{service.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <AnimatedServicesList
+                services={services}
+                showGradients={true}
+                enableArrowNavigation={true}
+                className="w-full"
+                itemClassName="hover:scale-105 transition-transform"
+              />
             </div>
           </div>
         </div>

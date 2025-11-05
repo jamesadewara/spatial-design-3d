@@ -17,7 +17,10 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="text-2xl font-bold gradient-text block mb-4">
-              SpatialDesign3D
+              <img
+              src="logo.png"
+              className="cursor-target select-none w-64 h-64 will-change-transform p-2  rounded-xl transition-all duration-300"
+              alt="SpatialDesign3D Logo"/>
             </Link>
             <p className="text-muted-foreground text-sm">
               Creating outstanding landing pages that convert visitors into customers.
@@ -31,7 +34,7 @@ export const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("about")}
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className=" cursor-target text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   About
                 </button>
@@ -39,7 +42,7 @@ export const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("services")}
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Services
                 </button>
@@ -47,7 +50,7 @@ export const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("testimonials")}
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Testimonials
                 </button>
@@ -55,7 +58,7 @@ export const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Contact
                 </button>
@@ -68,29 +71,29 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/analytics" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link to="/analytics" className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm">
                   Analytics
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <a href="#" className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <a href="#" className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm">
                   Case Studies
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <a href="#" className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm">
                   FAQ
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Social & Theme */}
+          {/* Social */}
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-4 mb-4">
@@ -98,7 +101,7 @@ export const Footer = () => {
                 href="https://wa.me/+2349138113769"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="cursor-target w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -106,7 +109,7 @@ export const Footer = () => {
                 href="https://t.me/SpatialDesign3D"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="cursor-target w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Send className="w-5 h-5" />
               </a>
@@ -114,14 +117,10 @@ export const Footer = () => {
                 href="https://instagram.com/SpatialDesign3D"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="cursor-target w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <User className="w-5 h-5" />
               </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Theme:</span>
-              <ThemeToggle />
             </div>
           </div>
         </div>

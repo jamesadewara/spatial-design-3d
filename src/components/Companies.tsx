@@ -1,59 +1,49 @@
 import { useEffect, useState } from "react";
+import SectionHeader from "./SectionHeader";
+import LogoLoop from "./LogoLoop";
 
-const companies = [
-  { name: "TechCorp", logo: "TC" },
-  { name: "DesignHub", logo: "DH" },
-  { name: "StartupXYZ", logo: "SX" },
-  { name: "InnovateCo", logo: "IC" },
-  { name: "CreativeSpace", logo: "CS" },
-  { name: "BrandMakers", logo: "BM" },
-  { name: "DigitalEdge", logo: "DE" },
-  { name: "FutureNow", logo: "FN" },
+const techCompanies = [
+  { src: "assets/img/icons/apple.svg", alt: "Apple", href: "https://apple.com" },
+  { src: "assets/img/icons/google.svg", alt: "Google", href: "https://google.com" },
+  { src: "assets/img/icons/microsoft.svg", alt: "Microsoft", href: "https://microsoft.com" },
+  { src: "assets/img/icons/meta.svg", alt: "Meta", href: "https://meta.com" },
+  { src: "assets/img/icons/tesla.svg", alt: "Tesla", href: "https://tesla.com" }
 ];
 
 export const Companies = () => {
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOffset((prev) => (prev + 1) % 100);
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Duplicate the array for seamless loop
-  const duplicatedCompanies = [...companies, ...companies];
-
   return (
-    <section className="py-16 overflow-hidden bg-background">
-      <div className="container mx-auto px-4 mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Trusted By Industry Leaders
-        </h2>
-        <p className="text-center text-muted-foreground">
-          Join the brands that chose excellence
-        </p>
+    <section className="py-20 overflow-hidden bg-gradient-to-b from-background to-gray-50/30 dark:to-gray-900/30">
+      <div className="container mx-auto px-4 mb-12">
+        <SectionHeader 
+          align="center" 
+          title="Trusted By Industry Leaders" 
+          subtitle="Join thousands of brands that trust our platform for excellence and innovation"
+          className="max-w-3xl mx-auto"
+        />
       </div>
 
       <div className="relative">
-        <div className="flex gap-8" style={{ transform: `translateX(-${offset}%)` }}>
-          {duplicatedCompanies.map((company, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 glass rounded-xl p-8 w-48 h-32 flex items-center justify-center hover:border-primary/50 transition-all duration-300"
-            >
-              <div className="text-center">
-                <div className="text-4xl font-bold gradient-text mb-2">
-                  {company.logo}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {company.name}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <LogoLoop
+          logos={techCompanies}
+          speed={80}
+          direction="left"
+          logoHeight={160}
+          gap={32}
+          pauseOnHover={true}
+          scaleOnHover={true}
+          fadeOut={true}
+          ariaLabel="Our technology partners and clients"
+          className="py-6"
+        />
+        
+        {/* Subtle background pattern */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-5"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
+          }}
+        />
       </div>
     </section>
   );
