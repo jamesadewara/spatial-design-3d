@@ -4,6 +4,7 @@ import ScrollReveal from "./ScrollReveal";
 import Section from "./Section";
 import SectionHeader from "./SectionHeader";
 import { ScrollPinContainer } from "./ScrollPinContainer";
+import ModelViewer from "./ModelViewer";
 
 export const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,13 +48,18 @@ export const About = () => {
                     {/* Animated 3D Cube Representation */}
                     <div className="cursor-target absolute inset-0 flex items-center justify-center">
                       <div className="relative w-full h-full animate-float">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6 blur-2xl" />
-                        <div className="relative glass rounded-3xl p-12 flex items-center justify-center">
-                          <img
-                            src="assets/img/vr.png"
-                            alt="3D Cube"
-                            className="user-select-none w-32 h-32 sm:w-48 sm:h-48 lg:w-full lg:h-full object-contain animate-pulse"
-                            style={{ animationDuration: "3s" }}
+                        <div className="w-full h-full absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6 blur-2xl" />
+                        <div className="w-full h-full relative glass rounded-3xl p-12 flex items-center justify-center">
+                          <ModelViewer
+                            src="/assets/3d/vr.glb"
+                            placeholder="assets/img/vr.png"
+                            allowZoom={false}
+                            allowPan={true}
+                            allowRotate={true}
+                            lockVerticalRotation={true}
+                            playAnimation={true}
+                            playOnScroll={true}
+                            reverseOnScrollUp={true}
                           />
                         </div>
                       </div>

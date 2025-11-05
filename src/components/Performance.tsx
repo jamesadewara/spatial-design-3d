@@ -4,6 +4,8 @@ import SectionHeader from "./SectionHeader";
 import AnimatedServicesList from "./AnimatedServicesList";
 import PixelCard from "./PixelCard";
 import Section from "./Section";
+import { ScrollPinContainer } from "./ScrollPinContainer";
+import ModelViewer from "./ModelViewer";
 
 const features = [
   {
@@ -50,64 +52,63 @@ export const Performance = () => {
   }, []);
 
   return (
-    <Section showDotGrid={true}  ref={sectionRef} className="py-24 relative overflow-hidden">
+    <Section showDotGrid={true} ref={sectionRef} className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader align="left" title="Built for Performance" subtitle="Every detail engineered for excellence. Here's what sets our work apart." />
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Scrolling Content - Right */}
-          <div className="space-y-8 lg:space-y-12">
-            <AnimatedServicesList
-                services={features}
-                showGradients={true}
-                enableArrowNavigation={true}
-                className="w-full"
-                itemClassName="hover:scale-105 transition-transform"
-              />
-          </div>
-          {/* Sticky Image - Left */}
-          <div className="cursor-target lg:sticky lg:top-24 lg:h-[600px] flex items-center justify-center">
-            <div className={`relative w-full max-w-md ${isVisible ? "animate-scale-in" : "opacity-0"}`}>
-              {/* Main visual container */}
-              <div className="relative aspect-square">
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-3xl blur-3xl" />
-                
-                {/* Glass card with 3D effect */}
-                <div className="relative glass rounded-3xl p-8 transform hover:scale-105 transition-transform duration-500">
-                  <div className="aspect-square flex items-center justify-center">
-                    <div className="relative w-full h-full">
-                      {/* Orbiting elements */}
-                      <div className="absolute inset-0 animate-rotate" style={{ animationDuration: "20s" }}>
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                          <Zap className="w-8 h-8 text-primary" />
-                        </div>
-                      </div>
-                      <div className="absolute inset-0 animate-rotate" style={{ animationDuration: "15s", animationDirection: "reverse" }}>
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-secondary/20 backdrop-blur-sm flex items-center justify-center">
-                          <Shield className="w-8 h-8 text-secondary" />
-                        </div>
-                      </div>
-                      
-                      {/* Center element */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-secondary p-8 animate-float">
-                          <TrendingUp className="w-full h-full text-white" />
-                        </div>
+        <ScrollPinContainer
+          className="grid lg:grid-cols-2 gap-12 lg:gap-16"
+          start="top-=2% top"
+          end="bottom top"
+          pinSpacing={true}
+          pinChildren={
+            /* Sticky Image - Left */
+            <div className="order-1 lg:order-2 cursor-target lg:sticky lg:top-24 lg:h-[600px] flex items-center justify-center">
+              <div className={`relative w-full max-w-md ${isVisible ? "animate-scale-in" : "opacity-0"}`}>
+                {/* Main visual container */}
+                <div className="relative aspect-square">
+                  {/* Background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-3xl blur-3xl" />
+
+                  {/* Glass card with 3D effect */}
+                  <div className="relative glass rounded-3xl p-8 transform hover:scale-105 transition-transform duration-500">
+                    <div className="aspect-square flex items-center justify-center">
+                      <div className="relative w-full h-full">
+                        <ModelViewer
+                            src="/assets/3d/robot.glb"
+                            placeholder="assets/img/robot.png"
+                            allowZoom={false}
+                            allowPan={true}
+                            allowRotate={true}
+                            lockVerticalRotation={true}
+                            playAnimation={true}
+                            playOnScroll={true}
+                            reverseOnScrollUp={true}
+                          />
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-pulse" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "1s" }} />
+                  {/* Decorative elements */}
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-pulse" />
+                  <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "1s" }} />
+                </div>
               </div>
             </div>
-          </div>
+          }>
 
-        </div>
+          {/* Scrolling Content - Right  */}
+          <div className="order-2 lg:order-1 space-y-8 lg:space-y-12">
+            <AnimatedServicesList
+              services={features}
+              showGradients={true}
+              enableArrowNavigation={true}
+              className="w-full"
+              itemClassName="hover:scale-105 transition-transform"
+            />
+          </div>
+        </ScrollPinContainer>
       </div>
     </Section>
   );

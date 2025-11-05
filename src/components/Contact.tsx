@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { Send, Mail, MessageSquare, User } from "lucide-react";
 import { MessageCircle, Send as TelegramIcon } from "lucide-react";
 import SectionHeader from "./SectionHeader";
+import { ScrollPinContainer } from "./ScrollPinContainer";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -52,80 +53,85 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <SectionHeader align="left" title={"Let's Work Together"} subtitle="Ready to elevate your digital presence? Get in touch."/>
+        <SectionHeader align="left" title={"Let's Work Together"} subtitle="Ready to elevate your digital presence? Get in touch." />
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Contact Form (Sticky) */}
-            <div className="lg:sticky lg:top-24 self-start">
-              <div className="glass rounded-2xl p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="pl-10"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                </div>
+          <ScrollPinContainer
+            className="grid lg:grid-cols-2 gap-12 items-start"
+            start="top-=5% top"
+            end="bottom top"
+            pinSpacing={true}
+            pinChildren={
+              /* Contact Form (Sticky) */
+              <div className="lg:sticky lg:top-24 self-start">
+                <div className="glass rounded-2xl p-8">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Name</label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                        <Input
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="pl-10"
+                          placeholder="John Doe"
+                          required
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="pl-10"
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Email</label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                        <Input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="pl-10"
+                          placeholder="john@example.com"
+                          required
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Company</label>
-                  <Input
-                    type="text"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="Your Company Name"
-                  />
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Company</label>
+                      <Input
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder="Your Company Name"
+                      />
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="pl-10 min-h-[120px]"
-                      placeholder="Tell us about your project..."
-                      required
-                    />
-                  </div>
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Message</label>
+                      <div className="relative">
+                        <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                        <Textarea
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          className="pl-10 min-h-[120px]"
+                          placeholder="Tell us about your project..."
+                          required
+                        />
+                      </div>
+                    </div>
 
-                <Button type="submit" variant="hero" size="lg" className="w-full cursor-target">
-                  Send Message
-                  <Send className="ml-2" />
-                </Button>
-              </form>
-              </div>
-            </div>
+                    <Button type="submit" variant="hero" size="lg" className="w-full cursor-target">
+                      Send Message
+                      <Send className="ml-2" />
+                    </Button>
+                  </form>
+                </div>
+              </div>}>
 
             {/* Contact Info & Map */}
             <div className="space-y-8">
               <div className="glass rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6">Connect With Us</h3>
-                
+
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   {socialLinks.map((link, index) => (
                     <a
@@ -147,8 +153,8 @@ export const Contact = () => {
                   <p className="text-muted-foreground">
                     Prefer email? Reach out directly at:
                   </p>
-                  <a 
-                    href="mailto:contact@spatialdesign3d.com" 
+                  <a
+                    href="mailto:contact@spatialdesign3d.com"
                     className="text-primary hover:underline font-medium"
                   >
                     contact@spatialdesign3d.com
@@ -170,7 +176,7 @@ export const Contact = () => {
                 />
               </div>
             </div>
-          </div>
+          </ScrollPinContainer>
         </div>
       </div>
     </section>
