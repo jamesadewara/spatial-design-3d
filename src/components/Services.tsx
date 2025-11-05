@@ -53,9 +53,9 @@ export const Services = () => {
   return (
     <section id="services" ref={sectionRef} className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* 3D Visual - Left (Sticky) */}
-          <div className="order-2 md:order-1 lg:sticky lg:top-24 lg:h-[700px] flex items-center">
+          <div className="order-2 lg:order-1 lg:sticky lg:top-24 self-start">
             <div className={`flex justify-center w-full ${isVisible ? "animate-slide-right" : "opacity-0"}`}>
               <div className="relative w-64 h-64 md:w-80 md:h-80">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -79,7 +79,7 @@ export const Services = () => {
           </div>
 
           {/* Services List - Right */}
-          <div className={`order-1 md:order-2 ${isVisible ? "animate-slide-left" : "opacity-0"}`}>
+          <div className={`order-1 lg:order-2 ${isVisible ? "animate-slide-left" : "opacity-0"}`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text text-right">
               What We Deliver
             </h2>

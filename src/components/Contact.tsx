@@ -61,9 +61,9 @@ export const Contact = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form (Sticky) */}
-            <div className="lg:sticky lg:top-24 lg:h-[700px]">
+            <div className="lg:sticky lg:top-24 self-start">
               <div className="glass rounded-2xl p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -175,6 +175,17 @@ export const Contact = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Location Map"
                 />
+              </div>
+
+              {/* Additional Info Card */}
+              <div className="glass rounded-2xl p-8">
+                <h3 className="text-xl font-bold mb-4">Why Choose Us?</h3>
+                <div className="space-y-3 text-muted-foreground">
+                  <p>✓ Lightning-fast response time</p>
+                  <p>✓ Tailored solutions for your business</p>
+                  <p>✓ Proven track record of success</p>
+                  <p>✓ Ongoing support and maintenance</p>
+                </div>
               </div>
             </div>
           </div>

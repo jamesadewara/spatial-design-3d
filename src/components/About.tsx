@@ -25,13 +25,13 @@ export const About = () => {
   return (
     <section id="about" ref={sectionRef} className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Content - Left */}
-          <div className={`${isVisible ? "animate-slide-right" : "opacity-0"}`}>
+          <div className={`space-y-8 ${isVisible ? "animate-slide-right" : "opacity-0"}`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
               Crafting Digital Experiences That Convert
             </h2>
-            <div className="space-y-4 text-lg text-muted-foreground">
+            <div className="space-y-6 text-lg text-muted-foreground">
               <p>
                 <strong className="text-foreground">What I Do:</strong> I create stunning, 
                 high-performance landing pages that don't just look beautiful—they drive results.
@@ -46,11 +46,21 @@ export const About = () => {
                 deserves more than a website. You deserve a powerful digital presence that works 
                 as hard as you do, turning visitors into customers and clicks into conversions.
               </p>
+              <p className="pt-4">
+                Every pixel, every interaction, and every element is crafted with purpose. 
+                I don't just build websites—I engineer conversion machines that transform 
+                your digital presence into your most powerful business asset.
+              </p>
+              <p>
+                From the initial consultation to the final launch and beyond, you'll have 
+                a dedicated partner focused on one thing: making your online presence work 
+                harder than ever before.
+              </p>
             </div>
           </div>
 
           {/* 3D Visual - Right (Sticky) */}
-          <div className="lg:sticky lg:top-24 lg:h-[600px] flex items-center">
+          <div className="lg:sticky lg:top-24 self-start">
             <div className={`flex justify-center w-full ${isVisible ? "animate-slide-left" : "opacity-0"}`}>
               <div className="relative w-64 h-64 md:w-80 md:h-80">
               {/* Animated 3D Cube Representation */}
