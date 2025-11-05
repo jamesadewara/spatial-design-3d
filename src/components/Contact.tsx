@@ -61,9 +61,10 @@ export const Contact = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="glass rounded-2xl p-8">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Contact Form (Sticky) */}
+            <div className="lg:sticky lg:top-24 lg:h-[700px]">
+              <div className="glass rounded-2xl p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
@@ -124,6 +125,7 @@ export const Contact = () => {
                   <Send className="ml-2" />
                 </Button>
               </form>
+              </div>
             </div>
 
             {/* Contact Info & Map */}

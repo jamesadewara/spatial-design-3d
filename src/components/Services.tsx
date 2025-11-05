@@ -53,10 +53,11 @@ export const Services = () => {
   return (
     <section id="services" ref={sectionRef} className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* 3D Visual - Left */}
-          <div className={`flex justify-center order-2 md:order-1 ${isVisible ? "animate-slide-right" : "opacity-0"}`}>
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* 3D Visual - Left (Sticky) */}
+          <div className="order-2 md:order-1 lg:sticky lg:top-24 lg:h-[700px] flex items-center">
+            <div className={`flex justify-center w-full ${isVisible ? "animate-slide-right" : "opacity-0"}`}>
+              <div className="relative w-64 h-64 md:w-80 md:h-80">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-full h-full">
                   {/* Rotating cube layers */}
@@ -73,6 +74,7 @@ export const Services = () => {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
 

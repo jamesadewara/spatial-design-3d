@@ -25,7 +25,7 @@ export const About = () => {
   return (
     <section id="about" ref={sectionRef} className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Content - Left */}
           <div className={`${isVisible ? "animate-slide-right" : "opacity-0"}`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
@@ -49,9 +49,10 @@ export const About = () => {
             </div>
           </div>
 
-          {/* 3D Visual - Right */}
-          <div className={`flex justify-center ${isVisible ? "animate-slide-left" : "opacity-0"}`}>
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+          {/* 3D Visual - Right (Sticky) */}
+          <div className="lg:sticky lg:top-24 lg:h-[600px] flex items-center">
+            <div className={`flex justify-center w-full ${isVisible ? "animate-slide-left" : "opacity-0"}`}>
+              <div className="relative w-64 h-64 md:w-80 md:h-80">
               {/* Animated 3D Cube Representation */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-full h-full animate-float">
@@ -65,6 +66,7 @@ export const About = () => {
               {/* Orbiting Elements */}
               <div className="absolute top-0 right-0 w-16 h-16 bg-primary/20 rounded-full blur-xl animate-pulse" />
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-secondary/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: "1s" }} />
+              </div>
             </div>
           </div>
         </div>
