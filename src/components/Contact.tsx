@@ -173,6 +173,7 @@ export const Contact = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Location Map"
+                  className="cursor-target"
                 />
               </div>
             </div>

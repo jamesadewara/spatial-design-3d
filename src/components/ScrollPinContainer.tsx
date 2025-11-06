@@ -11,6 +11,7 @@ interface ScrollPinContainerProps {
   pinSpacing?: boolean;
   pinChildren: React.ReactNode;
   children: React.ReactNode;
+  reverseOrder?: boolean;
 }
 
 export const ScrollPinContainer: React.FC<ScrollPinContainerProps> = ({
@@ -20,53 +21,53 @@ export const ScrollPinContainer: React.FC<ScrollPinContainerProps> = ({
   pinSpacing = true,
   pinChildren,
   children,
+  reverseOrder = false, // default false
 }) => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-  if (!triggerRef.current || !pinRef.current) {
-    return;
-  }
+    if (!triggerRef.current || !pinRef.current) return;
 
-  const mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
-  mm.add("(min-width: 1024px)", () => {
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: triggerRef.current,
-        start,
-        end,
-        pin: pinRef.current,
-        pinSpacing,
-        // markers: true,
-      });
-    }, triggerRef);
+    mm.add("(min-width: 1024px)", () => {
+      const ctx = gsap.context(() => {
+        ScrollTrigger.create({
+          trigger: triggerRef.current,
+          start,
+          end,
+          pin: pinRef.current,
+          pinSpacing,
+          // markers: true,
+        });
+      }, triggerRef);
 
-    return () => {
-      ctx.revert();
-      ScrollTrigger.refresh();
-    };
-  });
+      return () => {
+        ctx.revert();
+        ScrollTrigger.refresh();
+      };
+    });
 
-  // Optionally handle mobile: you can also add a query for smaller screens if needed
-  mm.add("(max-width: 1023px)", () => {
-    // Optional: cleaners or alternate behavior
-  });
+    // Mobile fallback (optional)
+    mm.add("(max-width: 1023px)", () => {});
 
-  return () => {
-    mm.revert(); // cleans up both sets
-  };
-}, [start, end, pinSpacing]);
+    return () => mm.revert();
+  }, [start, end, pinSpacing]);
 
   return (
     <div ref={triggerRef} className={className}>
-      <div ref={pinRef}>
-        {pinChildren}
-      </div>
-      <div>
-        {children}
-      </div>
+      {reverseOrder ? (
+        <>
+          <div>{children}</div>
+          <div ref={pinRef}>{pinChildren}</div>
+        </>
+      ) : (
+        <>
+          <div ref={pinRef}>{pinChildren}</div>
+          <div>{children}</div>
+        </>
+      )}
     </div>
   );
 };
