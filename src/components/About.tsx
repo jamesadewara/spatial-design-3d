@@ -48,16 +48,15 @@ export const About = () => {
               {/* 3D Visual - Right Column */}
               <div className="lg:sticky lg:top-54 self-start">
                 <div
-                  className={`flex justify-center w-full ${
-                    isVisible ? "animate-slide-left" : "opacity-0"
-                  }`}
+                  className={`flex justify-center w-full ${isVisible ? "animate-slide-left" : "opacity-0"
+                    }`}
                 >
                   <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[28rem] lg:h-[28rem] mx-auto">
                     <div className="cursor-target absolute inset-0 flex items-center justify-center">
                       <div className="relative w-full h-full animate-float">
                         <div className="w-full h-full absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6 blur-2xl" />
                         <div className="w-full h-full relative glass rounded-3xl p-12 flex items-center justify-center">
-                          <ModelViewer
+                          {/* <ModelViewer
                             src="/assets/3d/vr.glb"
                             placeholder="assets/img/vr.png"
                             allowZoom={false}
@@ -67,7 +66,14 @@ export const About = () => {
                             playAnimation={true}
                             playOnScroll={true}
                             reverseOnScrollUp={true}
+                          /> */}
+                          <img
+                            src="assets/img/vr.png"
+                            alt="3D Cube"
+                            className="w-32 h-32 sm:w-48 sm:h-48 lg:w-full lg:h-full object-contain animate-pulse"
+                            style={{ animationDuration: "3s" }}
                           />
+
                         </div>
                       </div>
                     </div>

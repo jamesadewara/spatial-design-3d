@@ -78,9 +78,9 @@ export const Testimonials = () => {
                 const distance = Math.abs(current - 1 - index);
                 
                 return (
-                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 rounded-2xl">
                     <div 
-                      className="p-1 h-full transition-all duration-500 ease-out"
+                      className="rounded-2xl p-1 h-full transition-all duration-500 ease-out"
                       style={{
                         transform: isActive 
                           ? 'scale(1.09) rotateY(0deg) translateZ(50px)' 
@@ -89,7 +89,7 @@ export const Testimonials = () => {
                         transformStyle: 'preserve-3d',
                       }}
                     >
-                      <div className="cursor-target glass p-6 h-full flex flex-col relative group hover:border-primary/50 transition-all duration-300 hover:scale-105">
+                      <div className="rounded-2xl cursor-target glass p-6 h-full flex flex-col relative group hover:border-primary/50 transition-all duration-300 hover:scale-105">
                         {/* Quote Icon with Parallax */}
                         <Quote className="absolute top-4 right-4 w-6 h-6 md:w-8 md:h-8 text-primary/30 transition-all duration-500 group-hover:text-primary/50 group-hover:scale-110 group-hover:rotate-12" />
 

@@ -7,7 +7,7 @@ export const ThemeToggle = () => {
 
   return (
     <Button
-      variant="default"
+      variant="hero"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="cursor-target rounded-full"
