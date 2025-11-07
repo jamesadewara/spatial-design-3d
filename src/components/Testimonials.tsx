@@ -7,13 +7,6 @@ import type { CarouselApi } from "@/components/ui/carousel";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    company: "TechCorp Inc.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    rating: 5,
-    quote: "The landing page SD3 created for us increased our conversion rate by 300%. Simply outstanding work!"
-  },
-  {
     name: "Michael Chen",
     company: "DesignHub",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",

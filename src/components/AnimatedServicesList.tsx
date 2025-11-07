@@ -28,7 +28,7 @@ const AnimatedServiceItem: React.FC<AnimatedServiceItemProps> = ({ children, del
       initial={{ scale: 0.7, opacity: 0 }}
       animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.7, opacity: 0 }}
       transition={{ duration: 0.2, delay }}
-      className="cursor-pointer"
+      className="cursor-target"
     >
       {children}
     </motion.div>
@@ -145,7 +145,7 @@ const AnimatedServicesList: React.FC<AnimatedServicesListProps> = ({
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2 text-white">{service.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-gray-400">{service.description}</p>
                   </div>
                 </div>
