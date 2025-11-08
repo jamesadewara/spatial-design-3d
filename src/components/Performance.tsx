@@ -75,16 +75,9 @@ export const Performance = () => {
                   <div className="relative glass rounded-3xl p-8 transform hover:scale-105 transition-transform duration-500">
                     <div className="aspect-square flex items-center justify-center">
                       <div className="relative w-full h-full">
-                        <ModelViewer
-                            src="/assets/3d/robot.glb"
-                            placeholder="assets/img/robot.png"
-                            allowZoom={false}
-                            allowPan={true}
-                            allowRotate={true}
-                            lockVerticalRotation={true}
-                            playAnimation={true}
-                            playOnScroll={true}
-                            reverseOnScrollUp={true}
+                        <img
+                            src="assets/img/robot.webp"
+                            className="user-select-none"       
                           />
                       </div>
                     </div>

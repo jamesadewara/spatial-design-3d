@@ -71,7 +71,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="text-2xl font-bold gradient-text flex items-center gap-2">
             <Logo
-              src="logo.png"
+              src="logo.webp"
               alt="SpatialDesign3D Logo"
               className={`cursor-target user-select-none w-16 h-16 will-change-transform p-2 rounded-xl transition-all duration-300 ${isScrolled ? "glass shadow-lg" : "bg-transparent"
                 }`}

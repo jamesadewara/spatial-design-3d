@@ -19,7 +19,7 @@ export const Footer = () => {
           <div>
             <Link to="/" className="text-2xl font-bold gradient-text block mb-4">
             <Logo
-              src="logo.png"
+              src="logo.webp"
               alt="SpatialDesign3D Logo"
               className="cursor-target user-select-none w-64 h-64 will-change-transform p-2  rounded-xl transition-all duration-300"/>
             </Link>

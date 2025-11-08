@@ -84,7 +84,7 @@ export const Services = () => {
                 <div className="cursor-target relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
                   <ModelViewer
                     src="/assets/3d/rubic.glb"
-                    placeholder="/assets/img/cube.png"
+                    placeholder="/assets/img/rubic.webp"
                     allowZoom={false}
                     allowPan={true}
                     allowRotate={true}

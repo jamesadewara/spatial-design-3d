@@ -112,6 +112,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
         enableZoom={allowZoom}
         enablePan={allowPan}
         enableRotate={allowRotate}
+      
       />
     );
   };
@@ -135,7 +136,7 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
         <directionalLight position={[5, 5, 5]} />
 
         {/* Automatically center and fit model */}
-        <Bounds fit observe margin={1.2}>
+        <Bounds frustumCulled={true} fit observe margin={1.2}>
           <Model src={src} playAnimation={playAnimation} scrollTime={scrollTime} onLoaded={() => setLoaded(true)} />
         </Bounds>
 

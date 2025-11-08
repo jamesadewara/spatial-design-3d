@@ -25,7 +25,7 @@ type LogoProps = {
   title?: string;
 };
 const Logo: React.FC<LogoProps> = ({
-  src = "/logo.png",
+  src = "/logo.webp",
   alt = "Logo",
   className = "",
   style,
