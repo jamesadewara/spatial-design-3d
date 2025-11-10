@@ -46,7 +46,7 @@ export const Hero = () => {
             <Button
               variant="hero"
               size="xl"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection("cta")}
               className="cursor-target w-full sm:w-auto min-w-[200px]"
               shimmer={true}
             >

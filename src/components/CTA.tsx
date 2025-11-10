@@ -10,7 +10,7 @@ export const CTA = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="cta" className="py-24 relative overflow-hidden">
       <div className="" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -26,12 +26,16 @@ export const CTA = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button className="cursor-target" variant="hero" size="xl" onClick={scrollToContact}>
-              Start Your Project
+              <a target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2" href="https://wa.me/2349138113769?text=Hey%20I%20heard%20about%20you%20build%20websites%20for%20brands%20to%20bring%20their%20brand%20awareness%20live%2C%20I%20would%20love%20to%20work%20with%20you...">
+                Start Your Project
+              </a>
               <ArrowRight className="ml-2" />
             </Button>
             <Button className="cursor-target bg-transparent hover:bg-transparent" variant="outline" size="xl" asChild>
               <a
-                href="https://t.me/SpatialDesign3D"
+                href="https://t.me/SpatialDesign3D?text=Hey%20I%20heard%20about%20you%20build%20websites%20for%20brands%20to%20bring%20their%20brand%20awareness%20live%2C%20I%20would%20love%20to%20work%20with%20you..."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"

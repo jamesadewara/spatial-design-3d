@@ -49,7 +49,7 @@ const Logo: React.FC<LogoProps> = ({
     {
       label: "Contact Developer",
       onClick: () =>
-        window.open("mailto:developer@example.com", "_blank"),
+        window.open("https://wa.me/2349138113769?text=Hey%20I%20heard%20about%20you%20build%20websites%20for%20brands%20to%20bring%20their%20brand%20awareness%20live%2C%20I%20would%20love%20to%20work%20with%20you...", "_blank"),
     },
     { label: "Cancel", onClick: () => setOpen(false) },
   ];

@@ -93,7 +93,7 @@ export const Navbar = () => {
             <NavLinks links={navLinks} onLinkClick={scrollToSection} activeId={activeSection} className="gap-4" />
 
             <ThemeToggle />
-            <Button className="bg-primary cursor-target" variant="hero" size="sm" onClick={() => scrollToSection("contact")}>
+            <Button className="bg-primary cursor-target" variant="hero" size="sm" onClick={() => scrollToSection("cta")}>
               Get Started
             </Button>
           </div>
@@ -118,7 +118,7 @@ export const Navbar = () => {
             <div className="px-2">
               <NavLinks links={navLinks} onLinkClick={scrollToSection} activeId={activeSection} vertical className="rounded-xl overflow-hidden bg-background/40" />
               <div className="pt-3 px-2">
-                <Button variant="hero" size="sm" className="w-full cursor-target" onClick={() => scrollToSection("contact")}>
+                <Button variant="hero" size="sm" className="w-full cursor-target" onClick={() => scrollToSection("cta")}>
                   Get Started
                 </Button>
               </div>

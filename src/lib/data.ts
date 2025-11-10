@@ -7,8 +7,8 @@ export interface NavLinkProp {
 const navLinks: NavLinkProp[] = [
     { title: "About", route: "about" },
     { title: "Services", route: "services" },
-    { title: "Testimonials", route: "testimonials" },
-    { title: "Contact", route: "contact" },
+    // { title: "Testimonials", route: "testimonials" },
+    // { title: "Contact", route: "contact" },
 ];
 
 export default navLinks;

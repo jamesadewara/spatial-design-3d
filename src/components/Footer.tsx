@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
-import { MessageCircle, Send, User } from "lucide-react";
+import { Instagram, MessageCircle, Music, Play, PlayCircle, Send, Twitter, User } from "lucide-react";
 import Logo from "./Logo";
 
 export const Footer = () => {
@@ -14,7 +14,7 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
             <Link to="/" className="text-2xl font-bold gradient-text block mb-4">
@@ -48,27 +48,27 @@ export const Footer = () => {
                   Services
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button
                   onClick={() => scrollToSection("testimonials")}
                   className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Testimonials
                 </button>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <button
                   onClick={() => scrollToSection("contact")}
                   className="cursor-target text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Contact
                 </button>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Resources */}
-          <div>
+          {/* <div>
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
@@ -87,7 +87,7 @@ export const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Social */}
           <div>
@@ -107,7 +107,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="cursor-target w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                <Send className="w-5 h-5" />
+                <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="https://instagram.com/SpatialDesign3D"
@@ -115,7 +115,15 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="cursor-target w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
-                <User className="w-5 h-5" />
+                <Instagram className="w-5 h-5" />
+              </a>
+                 <a
+                href="https://www.tiktok.com/@spatialdesign3d?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-target w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <PlayCircle  className="w-5 h-5" />
               </a>
             </div>
           </div>

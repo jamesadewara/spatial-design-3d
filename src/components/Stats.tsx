@@ -7,7 +7,7 @@ import Section from "./Section";
 const stats = [
   {
     icon: Award,
-    value: 50,
+    value: 20,
     suffix: "+",
     label: "Projects Completed",
     description: "Successful launches"

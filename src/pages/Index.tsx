@@ -26,13 +26,13 @@ const Index = () => {
         <Navbar />
         <Hero />
         <About />
-        <Stats />
+        {/* <Stats /> */}
         <Services />
         <Performance />
-        <Companies />
-        <Testimonials />
+        {/* <Companies /> */}
+        {/* <Testimonials /> */}
         <CTA />
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
       </main>
       <FeedbackDialog />
