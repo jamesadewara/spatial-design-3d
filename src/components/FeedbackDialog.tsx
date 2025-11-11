@@ -11,7 +11,7 @@ import {
 import { Button } from "./ui/button";
 
 const FeedbackDialog = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const maxLength = 250; // character limit
